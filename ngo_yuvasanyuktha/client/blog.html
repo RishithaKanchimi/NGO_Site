@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Yuvasanyuktha</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Overpass:300,400,500|Dosis:400,700"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="images/favicon.jpg" type="image/jpg">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="css/aos.css" />
+    <link rel="stylesheet" href="css/ionicons.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css" />
+    <link rel="stylesheet" href="css/jquery.timepicker.css" />
+    <link rel="stylesheet" href="css/flaticon.css" />
+    <link rel="stylesheet" href="css/icomoon.css" />
+    <link rel="stylesheet" href="css/fancybox.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <style>
+      .read-more-btn {
+    background-color: #4a90e2; /* Blue background color */
+    color: #fff; /* White text color */
+    font-weight: bold; /* Bold font weight */
+    padding: 10px 20px; /* Padding for button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+    margin-bottom: 10px; /* Bottom margin */
+  }
+
+  .read-more-btn:hover {
+    background-color: #357ae8; /* Darker blue background on hover */
+  }
+    .icon-bar {
+      position: fixed;
+      top: 35%;
+      right: -11px;
+      transform: translate(-30%);
+      z-index: 10;
+    }
+    .insta:hover {
+      background: rgb(245, 72, 72);
+
+      transform: scale(1.1);
+    }
+    .insta {
+      background: #f7ca44;
+      border-radius: 20%;
+      transition: transform 0.3s ease;
+    }
+    .dnt button {
+      background: #f7ca44;
+      border-radius: 15%;
+      border: none;
+      padding: 10px;
+      color: white;
+      margin-right: -10px;
+      transition: transform 0.3s ease;
+    }
+    .dnt button:hover {
+      transform: scale(1.1);
+      background: #122b12;
+    }
+    .icon-bar a {
+      width: 2.5rem;
+      color: white;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      padding: 0.5rem;
+      font-size: 25px;
+    }
+    .icon-bar a:hover {
+      transform: translateX(0);
+    }
+    .watsp {
+      transition: transform 0.3s ease;
+      background: #f7ca44;
+      border-radius: 20%;
+    }
+    .watsp:hover {
+      background: #38f938;
+      transform: scale(1.1);
+    }
+    #btn {
+      font-size: 18px;
+      font-weight: 600;
+      background-color: #f7ca44;
+      color: #fff;
+      padding: 10px 15px;
+      margin: 20px;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      box-shadow: 3px 5px 11px gray;
+      cursor: pointer;
+    }
+    .centered {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #btn:hover {
+      background-color: #f8d671;
+    }
+    #invisible-text {
+      display: none;
+    }
+    @media only screen and (max-width: 800px) {
+      .block-23 ul {
+        display: flex;
+        flex-direction: column;
+      }
+      .block-23 ul.d-flex li:nth-child(5),
+      .block-23 ul.d-flex li:nth-child(7) {
+        display: none;
+      }
+      .block-23 ul li {
+        margin-bottom: -1px;
+      }
+      .block-23 ul li > a {
+        margin-bottom: -2px;
+      }
+    }
+    .d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.justify-content-center {
+  display: flex;
+  justify-content: center;
+}
+
+.workshop {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100%;
+}
+
+.col-12.col-md-6.col-lg-4 {
+  display: flex;
+}
+
+img.img-fluid {
+  max-height: 350px;
+  object-fit: cover;
+  margin-bottom: 2rem;
+}
+
+button {
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Background blur */
+.blurred {
+  filter: blur(5px);
+}
+
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const readMoreButtons = document.querySelectorAll('.read-more-btn');
+  const closeButtons = document.querySelectorAll('.close');
+  const workshopContainers = document.querySelectorAll('.workshop-container');
+  
+  readMoreButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const modalId = this.getAttribute('data-modal');
+      document.getElementById(modalId).style.display = 'block';
+      workshopContainers.forEach(container => container.classList.add('blurred'));
+    });
+  });
+  
+  closeButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const modalId = this.getAttribute('data-modal');
+      document.getElementById(modalId).style.display = 'none';
+      workshopContainers.forEach(container => container.classList.remove('blurred'));
+    });
+  });
+  
+  window.addEventListener('click', function(event) {
+    readMoreButtons.forEach(button => {
+      const modalId = button.getAttribute('data-modal');
+      const modal = document.getElementById(modalId);
+      if (event.target == modal) {
+        modal.style.display = 'none';
+        workshopContainers.forEach(container => container.classList.remove('blurred'));
+      }
+    });
+  });
+});
+// document.addEventListener('DOMContentLoaded', function() {
+//       const readMoreButtons = document.querySelectorAll('.read-more-btn');
+//       const closeButtons = document.querySelectorAll('.close');
+//       const workshopContainers = document.querySelectorAll('.workshop-container');
+      
+//       readMoreButtons.forEach(button => {
+//         button.addEventListener('click', function() {
+//           const modalId = this.getAttribute('data-modal');
+//           document.getElementById(modalId).style.display = 'block';
+//           workshopContainers.forEach(container => container.classList.add('blurred'));
+//         });
+//       });
+      
+//       closeButtons.forEach(button => {
+//         button.addEventListener('click', function() {
+//           const modalId = this.getAttribute('data-modal');
+//           document.getElementById(modalId).style.display = 'none';
+//           workshopContainers.forEach(container => container.classList.remove('blurred'));
+//         });
+//       });
+      
+//       window.addEventListener('click', function(event) {
+//         readMoreButtons.forEach(button => {
+//           const modalId = button.getAttribute('data-modal');
+//           const modal = document.getElementById(modalId);
+//           if (event.target == modal) {
+//             modal.style.display = 'none';
+//             workshopContainers.forEach(container => container.classList.remove('blurred'));
+//           }
+//         });
+//       });
+//     });
+  </script>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+      id="ftco-navbar"
+    >
+      <div class="container">
+        <a
+          class="navbar-brand"
+          href="index.html"
+          style="
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            padding: 5px 10px;
+            text-decoration: none;
+          "
+        >
+          <span
+            style="
+              display: inline-block;
+              border-radius: 50%;
+              overflow: hidden;
+              width: 65px;
+              height: 65px;
+              margin-right: 10px;
+            "
+          >
+            <img
+              src="images/new-logo.jpg"
+              alt="Yuvasanyuktha Logo"
+              style="width: 100%; height: 100%"
+            />
+          </span>
+          Yuvasanyuktha
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#ftco-nav"
+          aria-controls="ftco-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="oi oi-menu"></span> Menu
+        </button>
+        <div>
+          <div>
+            <div class="block-23" style="font-size: 19px">
+              <ul class="d-flex">
+      
+                  <li><a href="tel:+918125692747"><span class="icon icon-phone"></span>+91 81256 92747</a></li>
+          
+                <li style="margin-left: 20px"></li>
+                <li>
+                  <a href="mailto:yuvaprayaas1020@gmail.com"
+                    ><span class="icon icon-envelope"></span
+                    >yuvaprayaas1020@gmail.com</a
+                  >
+                </li>
+                <li style="margin-left: 20px"></li>
+                <li>
+                  <a
+                    href="https://api.whatsapp.com/send/?phone=918125692747&text&type=phone_number&app_absent=0"
+                    ><span
+                      class="icon icon-whatsapp"
+                      style="font-size: 22px"
+                    ></span
+                    ><span class="text"></span
+                  ></a>
+                </li>
+                <li style="margin-left: 20px"></li>
+                <li>
+                  <a
+                    href="https://www.instagram.com/yuva_sanyuktha?igsh=bWsxZXc2M2plNTV2"
+                    ><span
+                      class="icon icon-instagram"
+                      style="font-size: 22px"
+                    ></span
+                    ><span class="text"></span><span class="text"></span
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="collapse navbar-collapse"
+            id="ftco-nav"
+            style="margin-top: -20px"
+          >
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="how-it-works.html" class="nav-link">How We Works</a>
+              </li>
+              <li class="nav-item">
+                <a href="donate.html" class="nav-link">Donate</a>
+              </li>
+              <li class="nav-item">
+                <a href="gallery.html" class="nav-link">Child Helplines</a>
+              </li>
+              <li class="nav-item active">
+                <a href="blog.html" class="nav-link">Workshops</a>
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link">About</a>
+              </li>
+              <li class="nav-item">
+                <a href="contact.html" class="nav-link">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- END nav -->
+
+    <div class="block-31" style="position: relative">
+      <div class="owl-carousel loop-block-31">
+        <div
+          class="block-30 block-30-sm item"
+          style="background-image: url('images/imageglry4.jpg')"
+          data-stellar-background-ratio="0.5"
+        >
+          <div class="container">
+            <div
+              class="row align-items-center justify-content-center text-center"
+            >
+              <div class="col-md-7">
+                <h2 class="heading mb-5">Our Workshops</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-wrap mt-4">
+      <!-- Workshop 1 -->
+      <div class="col-12 col-md-6 col-lg-4 justify-content-center mb-4 workshop-container">
+        <div class="col-12 bg-light d-flex flex-column">
+          <div class="site-section" style="padding: 0">
+            <div class="container">
+              <div class="row mb-4" style="color: rgb(104, 104, 104)">
+                <div class="col-md-12" style="width: 100%">
+                  <h2 class="mt-4" style="text-align: center; font-weight: 600; color: rgb(75, 74, 74);">Workshop - 1</h2>
+                  <div class="row">
+                    <div class="col-12" style="width: 100%">
+                      <img src="images/worksp-1.jpg" alt="" class="img-fluid" width="100%" style="max-height: 350px; object-fit: cover; margin-bottom: 2rem;">
+                    </div>
+                  </div>
+                  <h4>Touch Orphanage (Mahabubnagar)</h4>
+                  <h5 style="letter-spacing: 1px">"AROGYAM PARAMABHAGYAM"</h5>
+                  <p class="lead">Teaching kids to stay strong physically, mentally, and socially; Importance of prioritizing health and making good choices every day. We believe in holistic development of children and helping them in staying healthy is our motto.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button id="btn-1" class="mx-auto mt-auto mb-3 read-more-btn " data-modal="modal-1">Read More</button>
+        </div>
+      </div>
+      
+      <!-- Modal for Workshop 1 -->
+      <div id="modal-1" class="modal">
+        <div class="modal-content">
+          <span class="close" data-modal="modal-1">&times;</span>
+          <div class="modal-body">
+            <h4>Topics:</h4>
+            <ol style="color: rgb(104, 104, 104); font-size: 18px">
+              <li>Basic Hygiene habits</li>
+              <li>Dental Hygiene</li>
+              <li>Do's and don'ts during illness</li>
+              <li>Importance of proper nutrition</li>
+              <li>Guidance on Mental health</li>
+              <li>Meditation and stress management.</li>
+            </ol>
+            <h5>Children are the heart of every community and their health is its pulse.</h5>
+            <br />
+            <h4>Contributions:</h4>
+            <ol style="font-size: 18px">
+              <li>20kg Detergent soaps (Agarwal Industries)</li>
+              <li>Stationary for kids (Crayons)</li>
+              <li>Refreshments (Biscuit packets, Paperboats) for 100 children.</li>
+            </ol>
+            <h4>Fun and recreation:</h4>
+            <p class="lead">We believe in interactive and creative indulgence of children in learning is important in their individual growth.</p>
+            <h4>Activities conducted:</h4>
+            <ol style="color: rgb(104, 104, 104); font-size: 18px">
+              <li>Colouring activities for children of preprimary age group on Topic: Health and Hygiene.</li>
+              <li>Interactive and fun games for children of primary age group</li>
+              <li>Interactive friendly session on stress management, addictions, and adolescent issues in children of the secondary age group.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Workshop 2 -->
+      <div class="col-12 col-md-6 col-lg-4 justify-content-center mb-4 workshop-container">
+        <div class="col-12 bg-light d-flex flex-column">
+          <div class="site-section" style="padding: 0">
+            <div class="container">
+              <div class="row mb-4" style="color: rgb(104, 104, 104)">
+                <div class="col-md-12" style="width: 100%">
+                  <h2 class="mt-4" style="text-align: center; font-weight: 600; color: rgb(75, 74, 74);">Workshop - 2</h2>
+                  <div class="col-12" style="width: 100%">
+                    <img src="images/worksp-2.jpg" alt="" class="img-fluid" width="100%" style="max-height: 350px; object-fit: cover; margin-bottom: 2rem;">
+                  </div>
+                  <h4>Sannidhi Orphanage Mahabubnagar.</h4>
+                  <p class="lead">Enhancing inclusion: Workshop for Deaf and Dumb children. We believe that inclusion is key to unity. Teaching children with special needs requires empathy and skill. Unlocking their potential and introducing them to their limitless abilities regardless of disability is our objective in conducting workshops.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button id="btn-2" class="mx-auto mt-auto mb-3 read-more-btn" data-modal="modal-2">Read More</button>
+        </div>
+      </div>
+    
+      <!-- Modal for Workshop 2 -->
+      <div id="modal-2" class="modal">
+        <div class="modal-content">
+          <span class="close" data-modal="modal-2">&times;</span>
+          <div class="site-section" style="padding: 0">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <h4>Topics:</h4>
+                  <ol style="color: rgb(104, 104, 104); font-size: 18px">
+                    <li>Basic Health and Hygiene</li>
+                    <li>Dental Hygiene: Importance of Good Nutrition</li>
+                    <li>Good habits</li>
+                    <li>Moral Values</li>
+                  </ol>
+                  <h5>"The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart." - Helen Keller</h5>
+                  <br />
+                  <h4>Contributions:</h4>
+                  <ol style="font-size: 18px">
+                    <li>14 sets of Flashcards on 14 different topics (each set includes up to 50 flashcards) To promote easy and creative learning.</li>
+                    <li>Stationary material: Color pencil sets.</li>
+                    <li>Refreshments (Biscuits, Maaza tetrapacks, Chocolates)</li>
+                  </ol>
+                  <h4>Fun and recreation:</h4>
+                  <p class="lead">Interactive session in sign language with the help of our volunteers and staff presiding.</p>
+                  <p class="lead">Creative learning games - Elephant game</p>
+                  <p class="lead">Coloring activities.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+<!-- Workshop 3 -->
+<div class="col-12 col-md-6 col-lg-4 justify-content-center mb-4 workshop-container">
+  <div class="col-12 bg-light d-flex flex-column">
+    <div class="site-section" style="padding: 0">
+      <div class="container">
+        <div class="row mb-4" style="color: rgb(104, 104, 104)">
+          <div class="col-md-12" style="width: 100%">
+            <h2 class="mt-4" style="text-align: center; font-weight: 600; color: rgb(75, 74, 74);">Workshop - 3</h2>
+            <div class="row">
+              <div class="col-12" style="width: 100%">
+                <img src="images/worksp-3.jpg" alt="" class="img-fluid" width="100%" style="max-height: 350px; object-fit: cover; margin-bottom: 2rem;">
+              </div>
+            </div>
+            <h4 style="font-weight: 500">Specially abled children with mental disabilities.</h4>
+            <h4>Sannidhi Orphanage, Mahabubnagar.</h4>
+            <p class="lead">"Every child deserves to be seen, heard and valued. " Empathy is the language of connection, understanding and healing. Children with special needs deserve to be happy. They require extra care, support and special attention.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button id="btn-3" class="mx-auto mt-auto mb-3 read-more-btn" data-modal="modal-3">Read More</button>
+  </div>
+</div>
+
+<!-- Modal for Workshop 3 -->
+<div id="modal-3" class="modal">
+  <div class="modal-content">
+    <span class="close" data-modal="modal-3">&times;</span>
+    <div class="site-section" style="padding: 0">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h4>Topics:</h4>
+            <ol style="color: rgb(104, 104, 104); font-size: 18px">
+              <li>Alphabets and numbers</li>
+              <li>Moral values</li>
+              <li>Basic personal hygiene</li>
+              <h5>"Every child's story deserves to be heard with empathy and compassion."</h5>
+            </ol>
+            <br />
+            <h4>Contributions:</h4>
+            <ol style="font-size: 18px">
+              <li>Learning boards</li>
+              <li>Abacus</li>
+              <li>Animal toys</li>
+              <li>Refreshments (Biscuits and maaza tetrapacks)</li>
+            </ol>
+            <h4>Fun and Magic:</h4>
+            <p class="lead">Activities enhancing sensory and motor skills (learning boards)</p>
+            <p class="lead">Fostering attention and concentration by fun activities (Number tracking through dots, coloring, Maze solving)</p>
+            <p class="lead">Activities to improve cognitive abilities (Speaking activities)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Workshop 4 -->
+<div class="col-12 col-md-6 col-lg-4 justify-content-center mb-4 workshop-container">
+  <div class="col-12 bg-light d-flex flex-column">
+    <div class="site-section" style="padding: 0">
+      <div class="container">
+        <div class="row mb-4" style="color: rgb(104, 104, 104)">
+          <div class="col-md-12" style="width: 100%">
+            <h2 class="mt-4" style="text-align: center; font-weight: 600; color: rgb(75, 74, 74);">Workshop - 4</h2>
+            <div class="row">
+              <div class="col-12" style="width: 100%">
+                <img src="images/worksp-4.jpg" alt="" class="img-fluid" width="100%" style="max-height: 350px; object-fit: cover; margin-bottom: 2rem;">
+              </div>
+            </div>
+            <h4>Sannidhi Orphanage Mahabubnagar.</h4>
+            <p class="lead">Together we can create a supportive environment where every child feels valued and capable of achieving their dreams. Through engaging activities and meaningful interactions, we strive to provide opportunities for growth, learning and joy. Skill development workshops enhance overall development of individual and make them capable to face challenges in the competitive world.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button id="btn-4" class="mx-auto mt-auto mb-3 read-more-btn" data-modal="modal-4">Read More</button>
+  </div>
+</div>
+
+<!-- Modal for Workshop 4 -->
+<div id="modal-4" class="modal">
+  <div class="modal-content">
+    <span class="close" data-modal="modal-4">&times;</span>
+    <div class="site-section" style="padding: 0">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h4>Topics:</h4>
+            <ol style="color: rgb(104, 104, 104); font-size: 18px">
+              <li>Basic Health and Hygiene</li>
+              <li>Language and communication</li>
+              <li>Personal and Social Etiquette</li>
+              <li>Gender equality and Gender sensitization.</li>
+              <h5>"Education is the most powerful weapon which you can use to change the world. "- Nelson Mandela</h5>
+            </ol>
+            <br />
+            <h4>Contributions:</h4>
+            <ol style="font-size: 18px">
+              <li>Stationary- Craft material</li>
+              <li>Refreshments- Biscuit packets and maaza tetrapacks.</li>
+            </ol>
+            <h4>Fun and recreation:</h4>
+            <p class="lead">Interactive activities to promote gender equality and gender sensitization.</p>
+            <p class="lead">Interesting art and craft activities.</p>
+            <p class="lead">Teaching social etiquette by allotting different play tasks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Workshop 5 -->
+<div class="col-12 col-md-6 col-lg-4 justify-content-center mb-4 workshop-container">
+  <div class="col-12 bg-light d-flex flex-column">
+    <div class="site-section" style="padding: 0">
+      <div class="container">
+        <div class="row mb-4" style="color: rgb(104, 104, 104)">
+          <div class="col-md-12" style="width: 100%">
+            <h2 class="mt-4" style="text-align: center; font-weight: 600; color: rgb(75, 74, 74);">Workshop - 5</h2>
+            <div class="row">
+              <div class="col-12" style="width: 100%">
+                <img src="images/worksp-5.jpg" alt="" class="img-fluid" width="100%" style="max-height: 350px; object-fit: cover; margin-bottom: 2rem;">
+              </div>
+            </div>
+            <h4>Cheyutha Ashramam, Wanaparthy.</h4>
+            <p class="lead">Our workshop for the kids was a hub of growth and joy. It was a haven of learning and laughter. Through interactive sessions and practical demonstrations we aim to equip children with essential knowledge and skills about Health and Hygiene.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button id="btn-5" class="mx-auto mt-auto mb-3 read-more-btn" data-modal="modal-5">Read More</button>
+  </div>
+</div>
+
+<!-- Modal for Workshop 5 -->
+<div id="modal-5" class="modal">
+  <div class="modal-content">
+    <span class="close" data-modal="modal-5">&times;</span>
+    <div class="site-section" style="padding: 0">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h4>Topics:</h4>
+            <ol style="color: rgb(104, 104, 104); font-size: 18px">
+              <li>Basic Health and hygiene</li>
+              <li>Dental hygiene</li>
+              <li>Importance of proper nutrition</li>
+              <li>Guidance on Mental Health</li>
+              <li>Meditation techniques and stress management</li>
+            </ol>
+            <h5>" A society that prioritizes health is a society that invests in the future prosperity and happiness of its citizens. "</h5>
+            <br />
+            <h4>Contributions:</h4>
+            <ol style="font-size: 18px">
+              <li>Detergent soaps -80( Agarwal industries)</li>
+              <li>Bathing soaps</li>
+              <li>Washing machine liquid-4 litres</li>
+              <li>Toothpaste-35</li>
+              <li>Toothbrush-36</li>
+              <li>Dettol handwash-2 litres</li>
+              <li>Refreshments- Maaza tetrapacks</li>
+            </ol>
+            <h4>Fun and recreation:</h4>
+            <p class="lead">Interactive tasks</p>
+            <p class="lead">Interactive sessions</p>
+            <p class="lead">Creative learning games</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Workshop 6 -->
+<div class="col-12 col-md-6 col-lg-4 justify-content-center mb-4 workshop-container">
+  <div class="col-12 bg-light d-flex flex-column">
+    <div class="site-section" style="padding: 0">
+      <div class="container">
+        <div class="row mb-4" style="color: rgb(104, 104, 104)">
+          <div class="col-md-12" style="width: 100%">
+            <h2 class="mt-4" style="text-align: center; font-weight: 600; color: rgb(75, 74, 74);">Workshop - 6</h2>
+            <div class="row">
+              <div class="col-12" style="width: 100%">
+                <img src="images/worksp-6.jpg" alt="" class="img-fluid" width="100%" style="max-height: 350px; object-fit: cover; margin-bottom: 2rem;">
+              </div>
+            </div>
+            <h4>Touch Orphanage, Mahabubnagar.</h4>
+            <h5>Maitreyi : (Creating a positive outlook on menstruation and making young girls own their femininity by promoting period positivity)</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button id="btn-6" class="mx-auto mt-auto mb-3 read-more-btn" data-modal="modal-6">Read More</button>
+  </div>
+</div>
+
+<!-- Modal for Workshop 6 -->
+<div id="modal-6" class="modal">
+  <div class="modal-content">
+    <span class="close" data-modal="modal-6">&times;</span>
+    <div class="site-section" style="padding: 0">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ol style="color: rgb(104, 104, 104); font-size: 18px">
+              <li>What is Menstruation?</li>
+              <li>Menstrual hygiene and products</li>
+              <li>Menstrual nutrition</li>
+              <li>Period positivity and period tracking</li>
+              <li>Awareness about period myths and taboos</li>
+              <li>Pre-menstrual symptoms</li>
+              <li>Dealing with anxiety and emotional stress</li>
+              <li>Menstrual abnormalities</li>
+              <li>Menstrual disorders</li>
+              <li>Do's and Don'ts during periods.</li>
+              <h5>ABHAYA: Let's break the silence about any form of abuse and empower the change. Our workshop series aim to create a safe supportive space where we explain young children about how to recognize abuse, stand against any form of abuse, prevention of abusive environments around them.</h5>
+            </ol>
+            <h4>Topics:</h4>
+            <ol style="color: rgb(104, 104, 104); font-size: 18px">
+              <li>Understanding Safe and Unsafe touch</li>
+              <li>Identifying trusted Adults</li>
+              <li>Body Autonomy and Boundaries</li>
+              <li>Recognizing Warning Signs</li>
+              <li>Online Safety</li>
+              <li>Standing against bullying and physical, emotional abuse</li>
+              <li>Dealing with an emergency situation (Trusted resources, helplines, support services)</li>
+              <h4>"Menstruation is a journey of self-discovery and self-love. Embrace it with grace and gratitude."</h4>
+            </ol>
+            <br />
+            <h4>Contributions:</h4>
+            <ol style="font-size: 18px">
+              <li>Whisper Sanitary napkins - 180 packs</li>
+              <li>College bags - 20</li>
+              <li>Refreshments - Maaza tetrapacks</li>
+            </ol>
+            <h4>Fun and recreation:</h4>
+            <p class="lead">Fun tasks (Chits and tasks, games)</p>
+            <p class="lead">Talent hunt (Singing, Dancing, Dialogues)</p>
+            <p class="lead">Dumbcharades</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <footer class="footer">
+      <div class="container" >
+        <div class="row mb-5">
+   
+          <div class="col-md-6 col-lg-4">
+            <div class="block-23">
+              <h3 class="heading-section"> YUVA SANYUKTHA</h3>
+                <ul>
+                  <li><span class="icon icon-map-marker"></span><span class="text">Mahabubnagar, Telangana, India</span></li>
+                  <li><a href="tel:+918125692747"><span class="icon icon-phone"></span>+91 81256 92747</a></li>
+                  <li><a href="mailto:yuvaprayaas1020@gmail.com"><span class="icon icon-envelope"></span>yuvaprayaas1020@gmail.com</a></li>
+                  <li><a href="https://api.whatsapp.com/send/?phone=918125692747&text&type=phone_number&app_absent=0"><span class="icon icon-whatsapp" style="font-size: 22px;"></span><span class="text"></span>WhatsApp</a></li>
+                  <li><a href="https://www.instagram.com/yuva_sanyuktha?igsh=bWsxZXc2M2plNTV2"><span class="icon icon-instagram" style="font-size: 22px;"></span><span class="text"></span><span class="text"></span>yuva_sanyuktha</a></li>
+                  <a href="privacy_policy.html">Privacy Policy</a>
+                </ul>
+              </div>
+          </div>
+          
+        </div>
+        <div class="row pt-5">
+          <div class="col-md-12 text-center">
+            
+            <p class="text-center text-md-end text-xl-start"> 
+              Yuva Sanyuktha Foundation © 2024 Website Developed & Maintenance By <a href="https://booleanbraintechnologies.com/" target="_blank">Boolean Brain Technologies</a>
+          </p>
+          
+            
+          </div>
+        </div>
+      </div>
+  
+      
+    </footer>
+
+    <div class="icon-bar">
+      <div class="insta">
+        <a
+          href="https://www.instagram.com/yuva_sanyuktha?igsh=bWsxZXc2M2plNTV2"
+        >
+          <span class="icon icon-instagram" class="instagram"></span>
+        </a>
+      </div>
+      <br />
+      <div class="watsp">
+        <a
+          href="https://api.whatsapp.com/send/?phone=918125692747&text&type=phone_number&app_absent=0"
+        >
+          <span class="icon icon-whatsapp"></span>
+        </a>
+      </div>
+      <div class="dnt"><a href="donate.html">
+        <button style="cursor: pointer;">D<br>o<br>n<br>a<br>t<br>e</button>
+      </a></div>
+      
+    </div>
+    <br />
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen">
+      <svg class="circular" width="48px" height="48px">
+        <circle
+          class="path-bg"
+          cx="24"
+          cy="24"
+          r="22"
+          fill="none"
+          stroke-width="4"
+          stroke="#eeeeee"
+        />
+        <circle
+          class="path"
+          cx="24"
+          cy="24"
+          r="22"
+          fill="none"
+          stroke-width="4"
+          stroke-miterlimit="10"
+          stroke="#F96D00"
+        />
+      </svg>
+    </div>
+
+    <script>
+      function toggleVisibility(workshopId) {
+        var textId = "invisible-text-" + workshopId;
+        var btnId = "btn-" + workshopId;
+        var textElement = document.getElementById(textId);
+        var btnElement = document.getElementById(btnId);
+
+        if (textElement.style.display === "none") {
+          textElement.style.display = "block"; // Show the hidden content
+          btnElement.textContent = "Read Less";
+        } else {
+          textElement.style.display = "none"; // Hide the content
+          btnElement.textContent = "Read More";
+        }
+      }
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+
+    <script src="js/jquery.fancybox.min.js"></script>
+
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="js/google-map.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="js/volunteerForm.js"></script>
+  </body>
+</html>

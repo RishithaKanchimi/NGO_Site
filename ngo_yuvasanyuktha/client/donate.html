@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Yuvasanyuktha</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,500|Dosis:400,700" rel="stylesheet">
+  <link rel="icon" href="images/favicon.jpg" type="image/jpg">
+  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/ionicons.min.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/jquery.timepicker.css">
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/icomoon.css">
+
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<style>
+  #loading {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 99999;
+  }
+
+  #popUpMain {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1001;
+
+  }
+
+  #popup-div button {
+    width: 43%;
+    padding: 5px 0;
+    /* background: linear-gradient(to right, rgba(104, 233, 57, 0.9) 0%, rgba(50, 160, 193, 0.9) 100%); */
+    background: rgb(195, 28, 28);
+    font-weight: 600;
+
+    color: aliceblue;
+    ;
+    border: 0;
+    font-size: 27px;
+    border-radius: 10px;
+    cursor: pointer;
+
+  }
+
+  #popup-div button:hover {
+    background: #e83434;
+  }
+
+  #popup-div {
+    width: 500px;
+    height: 450px;
+    border-radius: 1%;
+    font-weight: 600;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+    position: absolute;
+    border: 1px solid green;
+    text-align: center;
+  }
+
+  .cross {
+    font-size: 30px;
+    margin-left: 443px;
+    color: rgb(26, 25, 25);
+
+    cursor: pointer;
+    position: absolute;
+  }
+
+  .icon-bar {
+    position: fixed;
+    top: 35%;
+    right: -11px;
+    transform: translate(-30%);
+    z-index: 10;
+
+  }
+
+  .insta:hover {
+    background: rgb(245, 72, 72);
+
+    transform: scale(1.1);
+  }
+
+  .insta {
+    background: #f7ca44;
+    border-radius: 20%;
+    transition: transform 0.3s ease;
+  }
+
+  .dnt button {
+    background: #f7ca44;
+    border-radius: 15%;
+    border: none;
+    padding: 10px;
+    color: white;
+    margin-right: -10px;
+    transition: transform 0.3s ease;
+  }
+
+  .dnt button:hover {
+    transform: scale(1.1);
+    background: #122b12;
+  }
+
+  .icon-bar a {
+    width: 2.5rem;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    padding: 0.5rem;
+    font-size: 25px;
+
+  }
+
+  .icon-bar a:hover {
+    transform: translateX(0);
+  }
+
+  .watsp {
+    transition: transform 0.3s ease;
+    background: #f7ca44;
+    border-radius: 20%;
+  }
+
+  .watsp:hover {
+    background: #38f938;
+    transform: scale(1.1);
+  }
+
+  @media only screen and (max-width: 800px) {
+    .block-23 ul {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .block-23 ul.d-flex li:nth-child(5),
+    .block-23 ul.d-flex li:nth-child(7) {
+      display: none;
+    }
+
+    .block-23 ul li {
+      margin-bottom: -1px;
+    }
+
+    .block-23 ul li>a {
+      margin-bottom: -2px;
+    }
+
+    .cross {
+      margin-left: 417px;
+    }
+  }
+
+
+  .image-container {
+    padding: 50px;
+    text-align: center;
+    margin-bottom: 2px;
+  }
+
+  .image-container button {
+    background-color: teal;
+    border: none;
+    padding: 15px 30px;
+    font-family: cursive;
+    font-size: 30px;
+    color: rgb(252, 252, 252);
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .image-container button:hover {
+    background-color: rgb(61, 110, 110);
+    transform: scale(1.05);
+    color: aliceblue
+  }
+
+  .image-container button:focus {
+    outline: none;
+  }
+
+  #payment-money-screen {
+    position: fixed;
+    width: 100vw;
+    height:auto;
+    background-color: rgba(255, 255, 255, 0.44);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.5s;
+    top: 100vh;
+  }
+
+  #payment-money-screen>div {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+  }
+
+  input[type=text],
+  input[type=number],
+  input[type=email] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+
+  #btn_submit {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  #btn_close {
+    background-color: #d73a62;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  #btn_submit:hover {
+    background-color: #45a049;
+  }
+
+  #btn_close:hover {
+    background-color: #ff1f57;
+  }
+</style>
+
+
+<body onload="myFunction()">
+  <!-- Payment money option -->
+  <div id="payment-money-screen">
+    <div>
+      <form>
+        <label for="pay_fname" style="margin-bottom: 5px;">First Name</label>
+        <input type="text" id="pay_fname" placeholder="Your name.." style="margin-bottom: 10px;" required>
+  
+        <label for="pay_number" style="margin-bottom: 5px;">Phone Number</label>
+        <input type="number" id="pay_number" placeholder="Your Phone Number.." style="margin-bottom: 10px;" required>
+  
+        <label for="pay_email" style="margin-bottom: 5px;">Email</label>
+        <input type="email" id="pay_email" placeholder="Your Email.." style="margin-bottom: 10px;" required>
+  
+        <label for="pay_pan" style="margin-bottom: 5px;">PAN Number</label>
+        <input type="text" id="pay_pan" placeholder="Your PAN Number.." style="margin-bottom: 10px;" required>
+  
+        <label for="pay_address" style="margin-bottom: 5px;">Address</label>
+        <input type="text" id="pay_address" placeholder="Your Address.." style="margin-bottom: 10px;" required>
+  
+        <label for="pay_amount" style="margin-bottom: 5px;">Amount</label>
+        <input type="number" id="pay_amount" placeholder="Amount to pay.." style="margin-bottom: 10px;" required>
+  
+        <br>
+  
+        <input id="btn_submit" type="submit" value="Submit">
+        <button id="btn_close">Close</button>
+      </form>
+    </div>
+  </div>
+  
+  <div id="loading"></div>
+
+  <!-- <div id="popUpMain" style="display: none;" >
+      <div id="popup-div">
+        <div class="cross">
+          <span  class="icon icon-close"></span>
+        </div>
+        <img src="images/handimg.webp" alt="" width="100%" margin-top="20px">
+        <h1>Support Yuva Sanyuktha Foundation</h1>
+        <p>Help us in brightening the futures</p>
+        
+        <button>DONATE NOW</button>
+      </div>
+      </div> -->
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"
+        style="display: flex; align-items: center; font-size: 1.5rem; padding: 5px 10px; text-decoration: none;">
+        <span
+          style="display: inline-block; border-radius: 50%; overflow: hidden; width: 65px; height: 65px; margin-right: 10px;">
+          <img src="images/new-logo.jpg" alt="Yuvasanyuktha Logo" style="width: 100%; height: 100%;">
+        </span>
+        Yuvasanyuktha
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div>
+        <div>
+          <div class="block-23" style="font-size: 19px; ">
+            <ul class=" d-flex ">
+              <li><a href="tel:+918125692747"><span class="icon icon-phone"></span>+91 81256 92747</a></li>
+              <li style="margin-left: 20px;"></li>
+              <li><a href="mailto:yuvaprayaas1020@gmail.com"><span
+                    class="icon icon-envelope"></span>yuvaprayaas1020@gmail.com</a></li>
+
+              <li style="margin-left: 20px;"></li>
+              <li><a href="https://api.whatsapp.com/send/?phone=918125692747&text&type=phone_number&app_absent=0"><span
+                    class="icon icon-whatsapp" style="font-size: 22px;"></span><span class="text"></span></a></li>
+              <li style="margin-left: 20px;"></li>
+              <li><a href="https://www.instagram.com/yuva_sanyuktha?igsh=bWsxZXc2M2plNTV2"><span
+                    class="icon icon-instagram" style="font-size: 22px;"></span><span class="text"></span><span
+                    class="text"></span></a></li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="collapse navbar-collapse" id="ftco-nav" style="margin-top: -20px;">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="how-it-works.html" class="nav-link">How We Works</a></li>
+            <li class="nav-item active"><a href="donate.html" class="nav-link">Donate</a></li>
+            <li class="nav-item"><a href="gallery.html" class="nav-link">Child Helplines</a></li>
+            <li class="nav-item"><a href="blog.html" class="nav-link">Workshops</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- END nav -->
+
+  <div class="block-31" style="position: relative;">
+    <div class="owl-carousel loop-block-31 ">
+      <div class="block-30 block-30-sm item" style="background-image: url('images/img-group.jpg');"
+        data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-center text-center">
+            <div class="col-md-7">
+              <h2 class="heading">Better To Give Than To Receive</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="image-container">
+
+    <!-- <img src="images/Donate.jpg" > -->
+    <button id="donateNowButton">Donate Now</button>
+  </div>
+
+  <div class="site-section fund-raisers">
+    <div class="container" style="width: 100%; max-width: 1200px; margin: 0 auto;">
+      <div class="row" style="font-size: 18px; color: #070505;">
+        <div class="col-md-6" style="max-width: 100%; flex: 100%;">
+          <h2
+            style="font-weight: 600; text-decoration: underline; text-align: center; margin-bottom: 40px; color: #201a1a;">
+            TERMS AND CONDITIONS</h2>
+          <ol>
+            <li style="margin-bottom: 20px;"><span style="color: #332d2d; font-weight: 600; color: #070505;"> Yuva
+                Sanyuktha Foundation</span> (No.416/2023) is a registered NGO based in
+              Mahabubnagar, Telangana and registered under Section 3 of Telangana
+              Societies Registration Act, 2001.
+            </li>
+            <li style="margin-bottom: 20px;"><span style="color: #332d2d; font-weight: 600;">Yuva Sanyuktha
+                Foundation</span> expects that Donor(s) will exercise due care
+              and diligence while making donations. In order to complete a Transaction,
+              Donor(s) need to provide a Payment Account, Donor(s) may execute a single
+              Transaction at a time or execute multiple Transactions on a recurring basis
+              (e.g., monthly, quarterly, annually, etc.), depending upon the options
+              selected during the Transaction process. Donor(s) authorize <span
+                style="color: #070505; font-weight: 600;">Yuva
+                Sanyuktha Foundation</span> to charge your Payment Account at the frequency
+              and in the amounts designated by you during the Transaction process. All
+              fees will be billed via the method of payment you designate during the
+              Transaction process.
+            </li>
+            <li style="margin-bottom: 20px;"><span style="color: #332d2d; font-weight: 600;">Yuva Sanyuktha Foundation
+              </span> takes the utmost care to process donations
+              as per the instructions given by Donor(s). Once submitted, amounts paid are
+              generally non-refundable. However, in case of an unlikely event of an
+              erroneous donation or if the Donor(s) would like to cancel his donation,<span> Yuva
+                Sanyuktha Foundation</span> will respond to the Donor(s) within 30 working days
+              of receiving a valid request for refund from the Donor(s). The timely refund
+              of the donation will depend upon the type of Payment Instrument used
+              during the transaction. The Donor(s) will have to send a request for a refund
+              within 1 days of making the donation to the official
+              email yuvaprayaas1020@gmail.com along with payment receipt and
+              Donor(s) details necessary for initiating refund.
+            </li>
+            <li style="margin-bottom: 20px;">However,<span style="color: #332d2d; font-weight: 600;"> Yuva Sanyuktha
+                Foundation </span> is not obliged to make refunds and
+              may, in its discretion, decline any requests for refund of donations,
+              particularly if a tax exemption certificate has been issued.</li>
+
+            <li style="margin-bottom: 20px;">Proof of age, if requested, of the Donor(s), must be submitted (i.e., Birth
+              Certificate, 10th Class leaving Certificate/School certificate/Passport/ an
+              affidavit signed by a magistrate). The Donor(s) additionally represents and
+              warrants that the Donor(s) is duly authorized to make Donations to<span
+                style="color: #332d2d; font-weight: 600;">Yuva Sanyuktha Foundation </span>as understood under these
+              Terms and Conditions
+              under applicable laws. </li>
+            <li style="margin-bottom: 20px;">Donor(s) agree and acknowledge that Donation is eligible for tax deduction
+              benefits under Section 80G of the Indian Income Tax Act, 1961 if the Donor
+              (s) is above the age of eighteen (18) years and a resident of India (as per
+              the Income Tax Act, 1961). Please contact, Your financial advisor to learn the
+              exact scope of the benefits regarding Your Donation.
+            </li>
+            <li style="margin-bottom: 20px;">Donor(s) acknowledges and agrees that Yuva Sanyuktha Foundation did
+              not provide any goods or services to Donor(s) personally in consideration for
+              any donations made by Donor(s) as part of a Transaction <span
+                style="color: #332d2d; font-weight: 600;">Yuva Sanyuktha Foundation </span>will apply Donor(s) donations
+              in accordance with its internal
+              policies and procedures. </li>
+
+            <li style="margin-bottom: 20px;"><span style="color: #332d2d; font-weight: 600;">Yuva Sanyuktha Foundation
+              </span>reserves all rights to make amendments to
+              the existing Terms and Conditions without giving prior notice. It shall be the
+              sole responsibility of the Donor(s) to check the Terms and Conditions on the
+              Website from time-to-time.
+            </li>
+            <li style="margin-bottom: 20px;"><span style="color: #332d2d; font-weight: 600;">Yuva Sanyuktha Foundation
+              </span>reserves the right to forfeit any Donation
+              made by a Donor in the event it is found that any information provided by
+              the Donor(s) is inaccurate, wrong, fraudulent or any misrepresentation is
+              made by the Donor(s) and/or the Donor is in breach of any of the provisions
+              of this Terms and Conditions.
+            </li>
+            <li style="margin-bottom: 20px;">If you have any questions or comments about these General Terms and
+              Conditions or this website, please Contact Us or write to us at:
+            </li>
+          </ol>
+        </div>
+        <div
+          style="background-color: #fefafaf1; padding: 10px 90px; border-radius: 10px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); ">
+
+          <div style="margin-top: 20px;">
+            <p style="font-size: 18px; color: #393838; line-height: 1.6;">1-8-97/10, T.D.Gutta, Mahabubnagar, Telangana
+              - 509001, India</p>
+            <p style="font-size: 18px; color: #393838; line-height: 1.6;">E-mail: <a
+                href="mailto:yuvaprayaas1020@gmail.com"
+                style="color: #007bff; text-decoration: none;">yuvaprayaas1020@gmail.com</a></p>
+            <p style="font-size: 18px; color: #393838; line-height: 1.6;">Call us on: <a href="tel:+918125692747"
+                style="color: #007bff; text-decoration: none;">+91 81256 92747</a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="featured-section overlay-color-2" style="background-image: url('images/bg_2.jpg');">
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-6 mb-5 mb-md-0">
+          <img src="images/imageglry4.jpg" alt="Image placeholder" class="img-fluid">
+        </div>
+
+        <div class="col-md-6 pl-md-5">
+
+          <div class="form-volunteer">
+
+            <h2>Be A Volunteer Today</h2>
+            <form id="form-volunteer" action="#" method="post">
+              <div class="form-group">
+                <!-- <label for="name">Name</label> -->
+                <input type="text" class="form-control py-2" id="name" placeholder="Enter your name">
+              </div>
+              <div class="form-group">
+                <!-- <label for="email">Email</label> -->
+                <input type="text" class="form-control py-2" id="email" placeholder="Enter your Mobile No">
+              </div>
+              <div class="form-group">
+                <!-- <label for="v_message">Email</label> -->
+                <textarea name="v_message" id="message" cols="30" rows="3" class="form-control py-2"
+                  placeholder="Write your message"></textarea>
+                <!-- <input type="text" class="form-control py-2" id="email"> -->
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-white px-5 py-2" value="Send">
+                <!-- add these below lines -->
+                <div id="successModal" style="display: none;">
+                  <p>Submitted Successfully!</p>
+                  <p>Thank you for getting in touch. We'll be in contact shortly.</p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div> <!-- .featured-donate -->
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row mb-5">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="block-23">
+            <h3 class="heading-section"> YUVA SANYUKTHA</h3>
+            <ul>
+              <li><span class="icon icon-map-marker"></span><span class="text">Mahabubnagar, Telangana, India</span>
+              </li>
+              <li><a href="tel:+918125692747"><span class="icon icon-phone"></span>+91 81256 92747</a></li>
+              <li><a href="mailto:yuvaprayaas1020@gmail.com"><span
+                    class="icon icon-envelope"></span>yuvaprayaas1020@gmail.com</a></li>
+              <li><a href="https://api.whatsapp.com/send/?phone=918125692747&text&type=phone_number&app_absent=0"><span
+                    class="icon icon-whatsapp" style="font-size: 22px;"></span><span class="text"></span>WhatsApp</a>
+              </li>
+              <li><a href="https://www.instagram.com/yuva_sanyuktha?igsh=bWsxZXc2M2plNTV2"><span
+                    class="icon icon-instagram" style="font-size: 22px;"></span><span class="text"></span><span
+                    class="text"></span>yuva_sanyuktha</a></li>
+              <a href="privacy_policy.html">Privacy Policy</a>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="row pt-5">
+        <div class="col-md-12 text-center">
+
+          <p class="text-center text-md-end text-xl-start">
+            Yuva Sanyuktha Foundation © 2024 Website Developed & Maintenance By <a
+              href="https://booleanbraintechnologies.com/" target="_blank">Boolean Brain Technologies</a>
+          </p>
+
+
+        </div>
+      </div>
+    </div>
+
+
+  </footer>
+
+  <div class="icon-bar">
+    <div class="insta"> <a href="https://www.instagram.com/yuva_sanyuktha?igsh=bWsxZXc2M2plNTV2"><span
+          class="icon icon-instagram" class="instagram">
+      </a></div><br>
+    <div class="watsp">
+      <a href="https://api.whatsapp.com/send/?phone=918125692747&text&type=phone_number&app_absent=0">
+        <span class="icon icon-whatsapp"></span>
+      </a>
+    </div><br>
+    <!-- <div class="dnt"><a href="#">
+    <button style="cursor: pointer;">D<br>o<br>n<br>a<br>t<br>e</button>
+  </a></div> -->
+  </div>
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+        stroke="#F96D00" />
+    </svg>
+  </div>
+
+
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+
+  <script src="js/jquery.fancybox.min.js"></script>
+
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <script>
+    var preloader = document.getElementById("loading");
+
+
+    function myFunction() {
+      preloader.style.display = 'none';
+
+    };
+    $(document).ready(function () {
+      setTimeout(function () {
+        $('#popUpMain').css('display', 'block');
+      }, 4000);
+
+
+
+      const pay_fname = $('#pay_fname');
+      const pay_amount = $('#pay_amount');
+      const pay_number = $('#pay_number');
+      const pay_email = $('#pay_email');
+
+      const handlePayment = async (e) => {
+        e.preventDefault();
+
+        if (pay_fname.val() == '' || pay_amount.val() == '' || pay_number.val() == '' || pay_email.val() == '') {
+          alert('all fields are mendetory')
+          return;
+        }
+        if (pay_number.val().length < 10) {
+          alert('Phone number should be of atlest 10 degits')
+          return;
+        }
+        if (! /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(pay_email.val())) {
+          alert('Invalid Email')
+          return;
+        };
+        const data = {
+          name: pay_fname.val(),
+          amount: pay_amount.val(),
+          number: pay_number.val(),
+          MUID: "MUID" + Date.now(),
+          transactionId: 'T' + Date.now(),
+          email: pay_email.val()
+        };
+        console.log(data);
+
+        try {
+          const response = await fetch('http://localhost:8000/order', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const responseData = await response.json();
+          console.log(responseData);
+
+          // if (responseData.data && responseData.data.instrumentResponse.redirectInfo.url) {
+          //   window.open(responseData.data.instrumentResponse.redirectInfo.url, '_blank');
+          // }
+        } catch (error) {
+          console.error('Error:', error);
+          // Handle error if request fails
+        }
+      };
+
+      $('#btn_submit').click(handlePayment);
+      $('#donateNowButton').click(() => {
+        $('#payment-money-screen').css('top', '0vh');
+      });
+      $('#btn_close').click(() => {
+        $('#payment-money-screen').css('top', '100vh');
+      });
+    });
+    $('.cross').click(function () {
+      $('#popUpMain').css('display', 'none');
+    });
+  </script>
+
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="js/volunteerForm.js"></script>
+
+</body>
+
+</html>
